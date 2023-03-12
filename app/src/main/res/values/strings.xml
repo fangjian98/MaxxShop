@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MaxxShop</string>
+    <string name="shop_tabs_label_home">首页</string>
+    <string name="shop_tabs_label_class">分类</string>
+    <string name="shop_tabs_label_cart">购物车</string>
+    <string name="shop_tabs_label_account">我的</string>
 </resources>
