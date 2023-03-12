@@ -22,4 +22,14 @@ public class AccountFragment extends BaseFragment {
     protected void initData() {
 
     }
+
+    @Override
+    protected boolean shouldShowDefaultActionBar() {
+        return true;
+    }
+
+    @Override
+    protected int getDemoTitleResId() {
+        return R.string.shop_tabs_label_account;
+    }
 }
