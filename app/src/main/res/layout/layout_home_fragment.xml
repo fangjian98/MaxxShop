@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:orientation="vertical">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:iconifiedByDefault="false"
+        android:searchIcon="@null"
+        android:background="@drawable/bg_searchview"
+        android:layout_margin="8dp"
+        android:queryBackground="@null"
+        app:queryHint="@string/app_name"
+        app:theme="@style/CustomSearchViewStyle" />
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/search_view"
+        layout="@layout/banner_item" />
+
+</RelativeLayout>

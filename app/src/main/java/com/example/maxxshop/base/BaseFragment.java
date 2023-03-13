@@ -1,5 +1,6 @@
 package com.example.maxxshop.base;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,10 +18,16 @@ import com.google.android.material.appbar.AppBarLayout;
 public abstract class BaseFragment extends Fragment {
 
     protected View mRootView;
+    protected Context mContext;
     private Toolbar toolbar;
     private ViewGroup demoContainer;
-
     private AppBarLayout appBarLayout;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mContext = getActivity();
+    }
 
     @Nullable
     @Override

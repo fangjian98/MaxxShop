@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomSearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
+        <!-- 修改搜索框文字颜色 -->
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <!-- 修改搜索框样式 -->
+        <!--<item name="searchHintIcon">@drawable/your_search_icon</item>-->
+    </style>
+
+
+</resources>
