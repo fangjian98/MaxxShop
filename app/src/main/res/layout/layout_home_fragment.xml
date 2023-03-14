@@ -1,28 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:animateLayoutChanges="true"
-    android:orientation="vertical">
+    android:layout_width="match_parent">
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:iconifiedByDefault="false"
-        android:searchIcon="@null"
-        android:background="@drawable/bg_searchview"
         android:layout_margin="8dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_searchview"
+        android:iconifiedByDefault="false"
         android:queryBackground="@null"
+        android:searchIcon="@null"
         app:queryHint="@string/app_name"
         app:theme="@style/CustomSearchViewStyle" />
 
-    <include
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@+id/search_view"
-        layout="@layout/banner_item" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:scrollbars="none">
 
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/banner_item"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+            <include
+                layout="@layout/grid_view_item"
+                android:layout_width="match_parent"
+                android:layout_height="180dp" />
+
+            <GridView
+                android:id="@+id/ads_grid"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_margin="8dp"
+                android:horizontalSpacing="8dp"
+                android:numColumns="2"
+                android:verticalSpacing="8dp" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

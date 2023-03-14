@@ -1,15 +1,22 @@
 package com.example.maxxshop.ui;
 
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.maxxshop.R;
 import com.example.maxxshop.adapter.BannerAdapter;
+import com.example.maxxshop.adapter.GridViewAdapter;
 import com.example.maxxshop.base.BaseFragment;
+import com.example.maxxshop.bean.AdsCard;
+import com.example.maxxshop.bean.Icon;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +28,13 @@ public class HomeFragment extends BaseFragment {
     private ViewPager viewPager;
     private List<ImageView> viewList;
     private LinearLayout indicatorLayout;
+    private GridView mGridView;
+    private GridView mAdsGridView;
+
+    private GridViewAdapter mAdapter = null;
+    private ArrayList<Icon> mData = null;
+
+    private GridViewAdapter mAdsAdapter = null;
     private int currentItem = 0;
     private Timer timer;
     private boolean isAutoPlay = true;
@@ -36,20 +50,27 @@ public class HomeFragment extends BaseFragment {
     protected void initView() {
         viewPager = mRootView.findViewById(R.id.viewPager);
         indicatorLayout = mRootView.findViewById(R.id.indicatorLayout);
+        mGridView = mRootView.findViewById(R.id.grid_photo);
+        mAdsGridView = mRootView.findViewById(R.id.ads_grid);
     }
 
     @Override
     protected void initData() {
         viewList = new ArrayList<>();
         LayoutInflater inflater = LayoutInflater.from(mContext);
+
+        String[] colorString = new String[]{"#FF0000","#00FF00","#0000FF","#00FFFF","#FFFFF00"};
+
         for (int i = 0; i < 5; i++) {
             ImageView imageView = (ImageView) inflater.inflate(R.layout.image_item, null);
-            imageView.setImageResource(R.drawable.ic_launcher_foreground);
+            imageView.setImageResource(R.drawable.banner_img);
+            //imageView.setImageTintList(ColorStateList.valueOf(Color.parseColor(colorString[i])));
             viewList.add(imageView);
         }
         setAdapter();
         initIndicator();
         startAutoPlay();
+        initGridView();
     }
 
     @Override
@@ -139,5 +160,53 @@ public class HomeFragment extends BaseFragment {
             timer.cancel();
             timer = null;
         }
+    }
+
+
+
+    private void initGridView() {
+        mData = new ArrayList<Icon>();
+        mData.add(new Icon(R.mipmap.ic_launcher, "图标1"));
+        mData.add(new Icon(R.mipmap.ic_launcher, "图标2"));
+        mData.add(new Icon(R.mipmap.ic_launcher, "图标3"));
+        mData.add(new Icon(R.mipmap.ic_launcher, "图标4"));
+        mData.add(new Icon(R.mipmap.ic_launcher, "图标5"));
+        mData.add(new Icon(R.mipmap.ic_launcher, "图标6"));
+        mData.add(new Icon(R.mipmap.ic_launcher, "图标7"));
+        mData.add(new Icon(R.mipmap.ic_launcher, "图标8"));
+
+        mAdapter = new GridViewAdapter<Icon>(mData, R.layout.item_grid_icon) {
+            @Override
+            public void bindView(ViewHolder holder, Icon obj) {
+                holder.setImageResource(R.id.img_icon, obj.getId());
+                holder.setText(R.id.txt_icon, obj.getName());
+            }
+        };
+        mGridView.setAdapter(mAdapter);
+
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(mContext, "你点击了~" + position + "~项", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ArrayList<AdsCard> mAdsData = new ArrayList<AdsCard>();
+        mAdsData.add(new AdsCard("MaxxShop","more",R.drawable.default_account_head,R.drawable.ic_tabs_home));
+        mAdsData.add(new AdsCard("MaxxShop","more",R.drawable.default_account_head,R.drawable.ic_tabs_home));
+        mAdsData.add(new AdsCard("MaxxShop","more",R.drawable.default_account_head,R.drawable.ic_tabs_home));
+        mAdsData.add(new AdsCard("MaxxShop","more",R.drawable.default_account_head,R.drawable.ic_tabs_home));
+
+        mAdsAdapter = new GridViewAdapter<AdsCard>(mAdsData, R.layout.card_view_item) {
+            @Override
+            public void bindView(ViewHolder holder, AdsCard obj) {
+                holder.setText(R.id.card_title, obj.getTitle());
+                holder.setText(R.id.card_sub_title, obj.getSubTitle());
+                holder.setImageResource(R.id.first_mage, obj.getFirstId());
+                holder.setImageResource(R.id.second_image, obj.getSecondId());
+
+            }
+        };
+        mAdsGridView.setAdapter(mAdsAdapter);
     }
 }

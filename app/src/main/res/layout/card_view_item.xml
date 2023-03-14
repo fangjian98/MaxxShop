@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:minHeight="100dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/card_title"
+            style="?attr/textAppearanceHeadline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:paddingBottom="16dp"
+            android:text="@string/app_name" />
+
+        <TextView
+            android:id="@+id/card_sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:gravity="end|top"
+            android:text="@string/app_name" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/first_mage"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/card_title"
+            android:layout_alignParentStart="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/app_name"
+            android:gravity="start|bottom"
+            app:backgroundTint="@color/material_on_surface_emphasis_medium"
+            app:backgroundTintMode="add"
+            app:srcCompat="@drawable/ic_tabs_home" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/second_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/card_title"
+            android:layout_alignParentEnd="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/app_name"
+            app:backgroundTint="@color/material_on_surface_emphasis_medium"
+            app:backgroundTintMode="add"
+            app:srcCompat="@drawable/default_account_head" />
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>
