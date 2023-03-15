@@ -40,4 +40,7 @@ dependencies {
 
     // preference
     implementation 'androidx.preference:preference:1.2.0'
+
+    // NestedScrollView
+    implementation 'androidx.core:core:1.9.0'
 }

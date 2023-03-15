@@ -6,14 +6,18 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.maxxshop.R;
 import com.example.maxxshop.adapter.BannerAdapter;
 import com.example.maxxshop.adapter.GridViewAdapter;
+import com.example.maxxshop.adapter.MyRecyclerAdapter;
 import com.example.maxxshop.base.BaseFragment;
 import com.example.maxxshop.bean.AdsCard;
 import com.example.maxxshop.bean.Icon;
@@ -30,6 +34,7 @@ public class HomeFragment extends BaseFragment {
     private LinearLayout indicatorLayout;
     private GridView mGridView;
     private GridView mAdsGridView;
+    private RecyclerView mRecyclerView;
 
     private GridViewAdapter mAdapter = null;
     private ArrayList<Icon> mData = null;
@@ -52,6 +57,7 @@ public class HomeFragment extends BaseFragment {
         indicatorLayout = mRootView.findViewById(R.id.indicatorLayout);
         mGridView = mRootView.findViewById(R.id.grid_photo);
         mAdsGridView = mRootView.findViewById(R.id.ads_grid);
+        mRecyclerView= mRootView.findViewById(R.id.shop_recycle_view);
     }
 
     @Override
@@ -71,6 +77,7 @@ public class HomeFragment extends BaseFragment {
         initIndicator();
         startAutoPlay();
         initGridView();
+        initRecycleView();
     }
 
     @Override
@@ -208,5 +215,26 @@ public class HomeFragment extends BaseFragment {
             }
         };
         mAdsGridView.setAdapter(mAdsAdapter);
+    }
+
+
+
+    private void initRecycleView() {
+        ArrayList<Icon> mData = new ArrayList<Icon>();
+        mData.add(new Icon(R.mipmap.ic_launcher, "图标1"));
+        mData.add(new Icon(R.mipmap.ic_launcher, "图标2"));
+        mData.add(new Icon(R.mipmap.ic_launcher, "图标3"));
+        mData.add(new Icon(R.mipmap.ic_launcher, "图标4"));
+        MyRecyclerAdapter<Icon> myRecyclerAdapter = new MyRecyclerAdapter<Icon>(mData, R.layout.recycle_view_item) {
+
+            @Override
+            public void bindView(ViewHolder holder, Icon obj) {
+                ((ImageView) holder.itemView.findViewById(R.id.goods_img)).setImageResource(obj.getId());
+                ((TextView) holder.itemView.findViewById(R.id.goods_title)).setText(obj.getName());
+
+            }
+        };
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+        mRecyclerView.setAdapter(myRecyclerAdapter);
     }
 }

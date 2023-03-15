@@ -3,6 +3,8 @@ package com.example.maxxshop.base;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -27,6 +29,8 @@ public abstract class BaseFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = getActivity();
+        // add for fragment onCreateOptionsMenu
+        setHasOptionsMenu(true);
     }
 
     @Nullable

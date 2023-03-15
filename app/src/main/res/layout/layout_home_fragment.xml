@@ -41,11 +41,16 @@
             <GridView
                 android:id="@+id/ads_grid"
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
+                android:layout_height="250dp"
                 android:layout_margin="8dp"
                 android:horizontalSpacing="8dp"
                 android:numColumns="2"
                 android:verticalSpacing="8dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/shop_recycle_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </ScrollView>
 

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/goods_img"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/default_account_head" />
+
+
+    <TextView
+        android:id="@+id/goods_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/goods_img"
+        android:layout_toEndOf="@+id/goods_img"
+        android:text="商品名称名称名称" />
+
+    <TextView
+        android:id="@+id/goods_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/goods_price"
+        android:layout_below="@+id/goods_title"
+        android:layout_toEndOf="@+id/goods_img"
+        android:gravity="center"
+        android:text="商品TAGTAG" />
+
+    <TextView
+        android:id="@+id/goods_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/goods_img"
+        android:layout_toEndOf="@+id/goods_img"
+        android:text="商品价格价格" />
+
+</RelativeLayout>

@@ -1,4 +1,4 @@
-package com.example.maxxshop;
+package com.example.maxxshop.adapter;
 
 import android.content.Context;
 
