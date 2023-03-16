@@ -2,8 +2,9 @@ package com.example.maxxshop.ui;
 
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
 import android.widget.GridView;
-import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -28,6 +29,8 @@ public class AccountFragment extends BaseFragment {
     private GridView mOrderView;
     private GridView mFunctionView;
     private RecyclerView recyclerView;
+    private RelativeLayout rlIndicator;
+    private View mainLine;
 
     private static final int COLUMN_COUNT = 2;
     private static final int SPAN_COUNT = 2;
@@ -46,6 +49,9 @@ public class AccountFragment extends BaseFragment {
         mOrderView = mRootView.findViewById(R.id.user_order_menu);
         mFunctionView = mRootView.findViewById(R.id.user_function_view);
         recyclerView = mRootView.findViewById(R.id.user_other_view);
+
+        rlIndicator = mRootView.findViewById(R.id.rl_indicator);
+        mainLine = mRootView.findViewById(R.id.main_line);
     }
 
     @Override
@@ -134,14 +140,42 @@ public class AccountFragment extends BaseFragment {
         MyAdapter adapter = new MyAdapter();
         List<String> data = new ArrayList<>();
         for (int i = 0; i < 12; i++) {
-            if(i%2==0){
+            if (i % 2 == 0) {
                 data.add("第一行" + i);
-            }else{
+            } else {
                 data.add("第二行 " + i);
             }
         }
         adapter.setData(data);
 
         recyclerView.setAdapter(adapter);
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                int range = 0;
+                int temp = recyclerView.computeHorizontalScrollRange();
+                if (temp > range) {
+                    range = temp;
+                }
+                //滑块的偏移量
+                int offset = recyclerView.computeHorizontalScrollOffset();
+                //可视区域长度
+                int extent = recyclerView.computeHorizontalScrollExtent();
+                //滑出部分在剩余范围的比例
+                float proportion = (float) (offset * 1.0 / (range - extent));
+                //计算滚动条宽度
+                float transMaxRange = rlIndicator.getWidth() - mainLine.getWidth();
+                //设置滚动条移动
+                mainLine.setTranslationX(transMaxRange * proportion);
+            }
+        });
     }
 }
