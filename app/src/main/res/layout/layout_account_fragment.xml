@@ -16,90 +16,135 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/image_view"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_gravity="left"
-                android:layout_margin="10dp"
-                android:adjustViewBounds="true"
-                android:elevation="5dp"
-                android:padding="8dp"
-                android:scaleType="fitXY"
-                app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
-                app:srcCompat="@drawable/default_account_head"
-                app:strokeColor="?attr/colorSecondary"
-                app:strokeWidth="1dp" />
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/user_image"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="left"
+                        android:layout_margin="10dp"
+                        android:adjustViewBounds="true"
+                        android:elevation="5dp"
+                        android:padding="8dp"
+                        android:scaleType="fitXY"
+                        app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
+                        app:srcCompat="@drawable/default_account_head"
+                        app:strokeColor="?attr/colorSecondary"
+                        app:strokeWidth="1dp" />
+
+                    <TextView
+                        android:id="@+id/user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/user_image"
+                        android:layout_toEndOf="@+id/user_image"
+                        android:text="@string/app_name" />
+
+                    <LinearLayout
+                        android:id="@+id/container_user_tag"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/user_name"
+                        android:layout_toEndOf="@+id/user_image"
+                        android:orientation="horizontal" />
+
+                    <GridView
+                        android:id="@+id/user_shop"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/user_image"
+                        android:layout_marginBottom="8dp"
+                        android:numColumns="4" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
 
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/user_vip"
                 android:layout_width="match_parent"
-                android:layout_height="200dp" />
+                android:layout_height="80dp"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#22c580">
 
-            <GridLayout
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:columnCount="4"
-                android:orientation="horizontal"
-                android:rowCount="2">
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_columnSpan="3"
-                    android:layout_columnWeight="1"
-                    android:layout_marginBottom="20dp"
-                    android:text="我的订单"
-                    android:textSize="14sp" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_columnWeight="1"
-                    android:gravity="right"
-                    android:text="全部"
-                    android:textSize="12sp" />
+                    <TextView
+                        android:id="@+id/user_order_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="我的订单" />
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_columnWeight="1"
-                    android:gravity="center"
-                    android:text="全部"
-                    android:textSize="16sp" />
+                    <TextView
+                        android:id="@+id/user_order_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:drawableRight="@drawable/ic_arrow_right"
+                        android:text="更多" />
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_columnWeight="1"
+                    <GridView
+                        android:id="@+id/user_order_menu"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_below="@+id/user_order_title"
+                        android:numColumns="5"
+                        android:orientation="horizontal" />
 
-                    android:gravity="center"
-                    android:text="全部"
-                    android:textSize="16sp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_below="@+id/user_order_menu"
+                        android:background="@drawable/rounded_rectangle_shape" />
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_columnWeight="1"
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-                    android:gravity="center"
-                    android:text="全部"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_columnWeight="1"
-
-                    android:gravity="center"
-                    android:text="全部"
-                    android:textSize="16sp" />
-            </GridLayout>
-
-            <GridView
-                android:id="@+id/grid_photo"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:numColumns="3" />
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="8dp">
 
-            <GridView
+                <GridView
+                    android:id="@+id/user_function_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:numColumns="4" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="600dp"
-                android:numColumns="3" />
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/user_other_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F5F5F5" />
+
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
 

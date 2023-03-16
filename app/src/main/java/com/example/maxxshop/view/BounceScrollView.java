@@ -39,13 +39,34 @@ public class BounceScrollView extends ScrollView {
         setVerticalScrollBarEnabled(false);
     }
 
+    /*@Override
+    protected boolean overScrollBy(int deltaX, int deltaY, int scrollX, int scrollY, int scrollRangeX, int scrollRangeY, int maxOverScrollX, int maxOverScrollY, boolean isTouchEvent) {
+        int newDeltaY = deltaY;
+        int delta = (int) (mMaxYOverscrollDistance / 2.5f);
+
+        //可能是由于滑动速度过快而导致的卡顿，你可以尝试调整以下代码中的参数来减慢滑动速度：
+        if (scrollY <= 0 && deltaY > 0) {
+            newDeltaY = (int) (deltaY / 3f);
+        } else if (scrollY >= scrollRangeY && deltaY < 0) {
+            newDeltaY = (int) (deltaY / 3f);
+        }
+        return super.overScrollBy(deltaX, newDeltaY, scrollX, scrollY, scrollRangeX, scrollRangeY, maxOverScrollX, mMaxYOverscrollDistance, isTouchEvent);
+    }*/
+
     @Override
-    protected boolean overScrollBy(int deltaX, int deltaY, int scrollX, int scrollY, int scrollRangeX,
-                                   int scrollRangeY, int maxOverScrollX, int maxOverScrollY, boolean isTouchEvent) {
-        // This is where the magic happens for the bounce effect
-        return super.overScrollBy(deltaX, deltaY, scrollX, scrollY, scrollRangeX,
-                scrollRangeY, maxOverScrollX, mMaxYOverscrollDistance, isTouchEvent);
+    protected boolean overScrollBy(int deltaX, int deltaY, int scrollX, int scrollY, int scrollRangeX, int scrollRangeY, int maxOverScrollX, int maxOverScrollY, boolean isTouchEvent) {
+        int newDeltaY = deltaY;
+        int delta = (int) (mMaxYOverscrollDistance / 2.5f);
+
+        if (scrollY <= 0 && deltaY > 0) {
+            if (deltaY > delta) {
+                newDeltaY = delta;
+            }
+        } else if (scrollY >= scrollRangeY && deltaY < 0) {
+            if (Math.abs(deltaY) > delta) {
+                newDeltaY =  -delta;
+            }
+        }
+        return super.overScrollBy(deltaX, newDeltaY, scrollX, scrollY, scrollRangeX, scrollRangeY, maxOverScrollX, mMaxYOverscrollDistance, isTouchEvent);
     }
-
 }
-
