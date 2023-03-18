@@ -1,7 +1,9 @@
 package com.example.maxxshop.ui;
 
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -22,6 +24,7 @@ import com.example.maxxshop.bean.Icon;
 import com.example.maxxshop.bean.UserShop;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.shape.ShapeAppearanceModel;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,6 +83,16 @@ public class AccountFragment extends BaseFragment {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.home_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.topappbar_item_settings:
+                mContext.startActivity(new Intent(mContext,SettingActivity.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void initShopView() {

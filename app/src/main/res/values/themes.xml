@@ -1,4 +1,32 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">#0E4BC0</item>
+        <!--控件颜色-->
+        <item name="colorAccent">#0E4BC0</item>
+        <!--标题颜色-->
+        <!--<item name="android:textColorPrimary"></item>-->
+        <!--背景颜色-->
+        <!--<item name="android:windowBackground">@color/white</item>-->
+        <!--导航栏颜色-->
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <!--状态栏颜色-->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">#0E4BC0</item>
+        <item name="colorAccent">#0E4BC0</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
     <!-- Base application theme. -->
     <style name="Theme.MaxxShop" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -12,5 +40,14 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="preferenceTheme">@style/CatalogPreferenceThemeOverlay</item>
+    </style>
+
+    <style name="CatalogPreferenceThemeOverlay" parent="PreferenceThemeOverlay">
+        <item name="switchPreferenceCompatStyle">@style/Preference.SwitchPreferenceCompat.Catalog</item>
+    </style>
+
+    <style name="Preference.SwitchPreferenceCompat.Catalog" parent="Preference.SwitchPreferenceCompat.Material">
+        <item name="android:widgetLayout">@layout/preference_widget_material_switch</item>
     </style>
 </resources>

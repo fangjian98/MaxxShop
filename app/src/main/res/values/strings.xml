@@ -4,4 +4,9 @@
     <string name="shop_tabs_label_class">分类</string>
     <string name="shop_tabs_label_cart">购物车</string>
     <string name="shop_tabs_label_account">我的</string>
+    <string name="settings_account">帐号管理</string>
+    <string name="settings_theme">主题</string>
+    <string name="settings_privacy_policy">隐私政策</string>
+    <string name="settings_about">关于我们</string>
+    <string name="settings_title">设置</string>
 </resources>
