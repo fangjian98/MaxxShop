@@ -4,15 +4,19 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.maxxshop.R;
 import com.example.maxxshop.adapter.GridViewAdapter;
 import com.example.maxxshop.adapter.MyAdapter;
+import com.example.maxxshop.adapter.MyRecyclerAdapter;
 import com.example.maxxshop.base.BaseFragment;
 import com.example.maxxshop.bean.Icon;
 import com.example.maxxshop.bean.UserShop;
@@ -136,19 +140,37 @@ public class AccountFragment extends BaseFragment {
         GridLayoutManager layoutManager = new GridLayoutManager(mContext, 2, GridLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
-
-        MyAdapter adapter = new MyAdapter();
-        List<String> data = new ArrayList<>();
-        for (int i = 0; i < 12; i++) {
-            if (i % 2 == 0) {
-                data.add("第一行" + i);
-            } else {
-                data.add("第二行 " + i);
-            }
+        ArrayList<Icon> mData = new ArrayList<Icon>();
+        for (int i = 0; i < 3; i++) {
+            mData.add(new Icon(R.mipmap.ic_launcher, "图标1"));
+            mData.add(new Icon(R.mipmap.ic_launcher, "图标2"));
+            mData.add(new Icon(R.mipmap.ic_launcher, "图标3"));
+            mData.add(new Icon(R.mipmap.ic_launcher, "图标4"));
         }
-        adapter.setData(data);
+        MyRecyclerAdapter<Icon> myRecyclerAdapter = new MyRecyclerAdapter<Icon>(mData, R.layout.horizontal_recycle_view_item) {
 
-        recyclerView.setAdapter(adapter);
+            @Override
+            public void bindView(ViewHolder holder, Icon obj) {
+                ((ImageView) holder.itemView.findViewById(R.id.other_icon)).setImageResource(obj.getId());
+                ((TextView) holder.itemView.findViewById(R.id.other_title)).setText(obj.getName());
+
+            }
+        };
+        recyclerView.setAdapter(myRecyclerAdapter);
+
+
+//        MyAdapter adapter = new MyAdapter();
+//        List<String> data = new ArrayList<>();
+//        for (int i = 0; i < 12; i++) {
+//            if (i % 2 == 0) {
+//                data.add("第一行" + i);
+//            } else {
+//                data.add("第二行 " + i);
+//            }
+//        }
+//        adapter.setData(data);
+//
+//        recyclerView.setAdapter(adapter);
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
