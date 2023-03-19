@@ -22,6 +22,8 @@
         </activity>
         <activity android:name=".ui.SettingActivity" />
         <activity android:name=".ui.SearchActivity" />
+        <activity android:name=".ui.GoodActivity" />
+        <activity android:name=".ui.ShopActivity" />
     </application>
 
 </manifest>

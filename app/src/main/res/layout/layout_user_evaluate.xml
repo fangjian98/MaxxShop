@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/user_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/default_account_head" />
+
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_toEndOf="@id/user_icon"
+        android:text="userName" />
+
+    <TextView
+        android:id="@+id/user_evaluate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_icon"
+        android:layout_toEndOf="@id/user_icon"
+        android:text="user_evaluate" />
+
+    <ImageView
+        android:id="@+id/user_evaluate_icon1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/user_evaluate"
+        android:layout_margin="5dp"
+        android:layout_toEndOf="@id/user_icon"
+        android:src="@drawable/default_account_head" />
+
+    <ImageView
+        android:id="@+id/user_evaluate_icon2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/user_evaluate"
+        android:layout_margin="5dp"
+        android:layout_toEndOf="@+id/user_evaluate_icon1"
+        android:src="@drawable/default_account_head" />
+
+    <ImageView
+        android:id="@+id/user_evaluate_icon3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/user_evaluate"
+        android:layout_margin="5dp"
+        android:layout_toEndOf="@+id/user_evaluate_icon2"
+        android:src="@drawable/default_account_head" />
+
+
+</RelativeLayout>

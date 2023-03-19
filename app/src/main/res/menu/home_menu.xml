@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="AppCompatResource">
     <item
-        android:id="@+id/cat_topappbar_item_edit"
-        android:title="@string/app_name"
-        app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/cat_topappbar_item_favorite"
+        android:id="@+id/topappbar_item_goods"
         android:icon="@drawable/ic_menu_message"
         android:title="@string/app_name"
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/topappbar_item_message"
+        android:icon="@drawable/ic_menu_message"
+        android:title="@string/app_name"
+        app:showAsAction="always" />
     <item
         android:id="@+id/topappbar_item_settings"
         android:icon="@drawable/ic_menu_settings"
         android:title="@string/app_name"
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
 </menu>

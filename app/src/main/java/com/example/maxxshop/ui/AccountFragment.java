@@ -83,9 +83,15 @@ public class AccountFragment extends BaseFragment {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.topappbar_item_settings:
-                mContext.startActivity(new Intent(mContext,SettingActivity.class));
+                mContext.startActivity(new Intent(mContext, SettingActivity.class));
+                break;
+            case R.id.topappbar_item_message:
+                mContext.startActivity(new Intent(mContext, ShopActivity.class));
+                break;
+            case R.id.topappbar_item_goods:
+                mContext.startActivity(new Intent(mContext, GoodActivity.class));
                 break;
         }
         return super.onOptionsItemSelected(item);
