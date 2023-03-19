@@ -4,7 +4,14 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
-    <androidx.appcompat.widget.SearchView
+    <include
+        android:id="@+id/search_view"
+        layout="@layout/freeme_search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp" />
+
+    <!--<androidx.appcompat.widget.SearchView
         android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +22,7 @@
         android:queryBackground="@null"
         android:searchIcon="@null"
         app:queryHint="@string/app_name"
-        app:theme="@style/CustomSearchViewStyle" />
+        app:theme="@style/CustomSearchViewStyle" />-->
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

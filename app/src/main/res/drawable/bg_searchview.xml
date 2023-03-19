@@ -1,11 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- 角度 -->
+<?xml version="1.0" encoding="utf-8"?><!--<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    &lt;!&ndash; 角度 &ndash;&gt;
     <corners android:radius="35dp" />
-    <!-- 填充色 -->
+    &lt;!&ndash; 填充色 &ndash;&gt;
     <solid android:color="@color/white" />
-    <!-- 描边 设置线宽及颜色 -->
+    &lt;!&ndash; 描边 设置线宽及颜色 &ndash;&gt;
     <stroke
         android:width="1dp"
         android:color="#3F3F3F" />
+</shape>-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="18dp" />
+    <solid android:color="#1AA2ACB9" />
 </shape>

@@ -17,13 +17,20 @@ public class SettingActivity extends BaseActivity {
     @Override
     protected void initView() {
         fragmentContainerView = findViewById(R.id.settings_container);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
     }
 
     @Override
     protected void initData() {
 
+    }
+
+    @Override
+    protected boolean shouldShowDefaultActionBar() {
+        return true;
+    }
+
+    @Override
+    protected int getDemoTitleResId() {
+        return R.string.app_name;
     }
 }

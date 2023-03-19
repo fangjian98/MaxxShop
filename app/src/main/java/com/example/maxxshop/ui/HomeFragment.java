@@ -1,5 +1,6 @@
 package com.example.maxxshop.ui;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,7 +28,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements View.OnClickListener{
 
     private ViewPager viewPager;
     private List<ImageView> viewList;
@@ -35,6 +36,7 @@ public class HomeFragment extends BaseFragment {
     private GridView mGridView;
     private GridView mAdsGridView;
     private RecyclerView mRecyclerView;
+    private View mSearchView;
 
     private GridViewAdapter mAdapter = null;
     private ArrayList<Icon> mData = null;
@@ -58,6 +60,9 @@ public class HomeFragment extends BaseFragment {
         mGridView = mRootView.findViewById(R.id.grid_photo);
         mAdsGridView = mRootView.findViewById(R.id.ads_grid);
         mRecyclerView= mRootView.findViewById(R.id.shop_recycle_view);
+        mSearchView = mRootView.findViewById(R.id.search_view);
+
+        mSearchView.setOnClickListener(this);
     }
 
     @Override
@@ -236,5 +241,14 @@ public class HomeFragment extends BaseFragment {
         };
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mRecyclerView.setAdapter(myRecyclerAdapter);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.search_view:
+                mContext.startActivity(new Intent(mContext,SearchActivity.class));
+                break;
+        }
     }
 }

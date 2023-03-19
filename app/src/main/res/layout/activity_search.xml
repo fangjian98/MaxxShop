@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/cat_search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/bg_searchview"
+            android:iconifiedByDefault="false"
+            android:queryBackground="@null"
+            android:searchIcon="@null"
+            app:queryHint="@string/app_name"
+            app:theme="@style/CustomSearchViewStyle" />
+    </com.google.android.material.appbar.AppBarLayout>-->
+
+    <!-- Content goes here (ScrollView, RecyclerView, etc.). -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/cat_search_view_suggestion_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

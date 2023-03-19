@@ -61,4 +61,14 @@ public class MainActivity extends BaseActivity {
         mAllFragment.put(3, new AccountFragment());
         getSupportFragmentManager().beginTransaction().add(R.id.container, mAllFragment.get(0)).commit();
     }
+
+    @Override
+    protected boolean shouldShowDefaultActionBar() {
+        return false;
+    }
+
+    @Override
+    protected int getDemoTitleResId() {
+        return R.string.app_name;
+    }
 }
