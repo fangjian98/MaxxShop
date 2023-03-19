@@ -7,12 +7,19 @@
     <ListView
         android:id="@+id/list_view_category"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:divider="@null"/>
 
-    <ListView
+   <!-- <ListView
         android:id="@+id/list_view_sub_category"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="3" />
+        android:layout_weight="3" />-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_view_sub_category"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"/>
 </LinearLayout>

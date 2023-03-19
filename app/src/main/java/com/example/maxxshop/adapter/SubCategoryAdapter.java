@@ -1,44 +1,104 @@
 package com.example.maxxshop.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.maxxshop.R;
+import com.example.maxxshop.bean.SubCategory;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class SubCategoryAdapter extends ArrayAdapter<String> {
+public class SubCategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private ArrayList<String> mSubCategories;
-    private Context mContext;
+    public static final int VIEW_TYPE_HEADER = 0;
+    private static final int VIEW_TYPE_ITEM = 1;
 
-    public SubCategoryAdapter(Context context, ArrayList<String> subCategories) {
-        super(context, 0, subCategories);
-        mSubCategories = subCategories;
-        mContext = context;
+    private List<SubCategory> mData;
+
+    public SubCategoryAdapter(List<SubCategory> data) {
+        mData = data;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.category_list_item, parent, false);
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        if (viewType == VIEW_TYPE_HEADER) {
+            View view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_header, parent, false);
+            return new HeaderViewHolder(view);
+        } else {
+            View view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_item, parent, false);
+            return new ItemViewHolder(view);
         }
-
-        TextView subCategoryName = (TextView) convertView.findViewById(R.id.category_name);
-        subCategoryName.setText(mSubCategories.get(position));
-
-        return convertView;
     }
 
-    public void updateCategory(ArrayList<String> subCategories) {
-        mSubCategories.clear();
-        mSubCategories.addAll(subCategories);
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        SubCategory sectionOrItem = mData.get(position);
+        if (holder instanceof HeaderViewHolder) {
+            HeaderViewHolder headerViewHolder = (HeaderViewHolder) holder;
+            headerViewHolder.headerTextView.setText(sectionOrItem.getTitle());
+        } else {
+            ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
+            itemViewHolder.itemTextView.setText(sectionOrItem.getTitle());
+            itemViewHolder.itemIcon.setImageResource(sectionOrItem.getIconId());
+            itemViewHolder.item.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    android.util.Log.e("fangjian","setOnClickListener position="+position);
+                }
+            });
+        }
+    }
+
+    @Override
+    public int getItemCount() {
+        return mData.size();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (mData.get(position).isHeader()) {
+            return VIEW_TYPE_HEADER;
+        } else {
+            return VIEW_TYPE_ITEM;
+        }
+    }
+
+    public void updateCategory(List<SubCategory> data) {
+        mData = data;
         notifyDataSetChanged();
     }
+
+    private static class HeaderViewHolder extends RecyclerView.ViewHolder {
+        TextView headerTextView;
+
+        HeaderViewHolder(View itemView) {
+            super(itemView);
+            headerTextView = itemView.findViewById(R.id.headerTextView);
+        }
+    }
+
+    private static class ItemViewHolder extends RecyclerView.ViewHolder {
+        TextView itemTextView;
+        ImageView itemIcon;
+        RelativeLayout item;
+
+        ItemViewHolder(View itemView) {
+            super(itemView);
+            itemTextView = itemView.findViewById(R.id.itemTextView);
+            itemIcon = itemView.findViewById(R.id.itemIcon);
+            item = itemView.findViewById(R.id.item);
+        }
+    }
+
 }
+
 
 

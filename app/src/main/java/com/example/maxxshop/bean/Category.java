@@ -1,23 +1,28 @@
 package com.example.maxxshop.bean;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Category {
 
     private String mCategoryName;
-    private List<String> mSubCategories;
+    private List<SubCategory> mSubCategories;
 
-    public Category(String categoryName, String subCategories) {
+    public Category(String categoryName, List<SubCategory> subCategories) {
         mCategoryName = categoryName;
-        mSubCategories = Arrays.asList(subCategories.split(","));
+        mSubCategories = subCategories;
     }
 
-    public String getCategoryName() { return mCategoryName; }
+    public String getCategoryName() {
+        return mCategoryName;
+    }
 
-    public List<String> getSubCategories() { return mSubCategories; }
+    public List<SubCategory> getSubCategories() {
+        return mSubCategories;
+    }
 
-    public void setSubCategories(List<String> subCategories) { mSubCategories = subCategories; }
+    public void setSubCategories(List<SubCategory> subCategories) {
+        mSubCategories = subCategories;
+    }
 }
 
 

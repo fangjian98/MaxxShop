@@ -12,22 +12,18 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.maxxshop.R;
 import com.example.maxxshop.adapter.GridViewAdapter;
-import com.example.maxxshop.adapter.MyAdapter;
 import com.example.maxxshop.adapter.MyRecyclerAdapter;
 import com.example.maxxshop.base.BaseFragment;
 import com.example.maxxshop.bean.Icon;
 import com.example.maxxshop.bean.UserShop;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.shape.ShapeAppearanceModel;
-import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class AccountFragment extends BaseFragment {
 

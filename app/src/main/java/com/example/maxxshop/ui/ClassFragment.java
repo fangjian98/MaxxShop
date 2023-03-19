@@ -1,24 +1,11 @@
 package com.example.maxxshop.ui;
 
-import android.util.SparseArray;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.maxxshop.R;
-import com.example.maxxshop.adapter.CategoryAdapter;
-import com.example.maxxshop.adapter.SubCategoryAdapter;
 import com.example.maxxshop.adapter.TabsPagerAdapter;
-import com.example.maxxshop.adapter.ViewPagerAdapter;
 import com.example.maxxshop.base.BaseFragment;
-import com.example.maxxshop.bean.Category;
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ClassFragment extends BaseFragment {
 
@@ -49,7 +36,7 @@ public class ClassFragment extends BaseFragment {
     }
 
     private void setupViewPager() {
-        mViewPager.setAdapter(new TabsPagerAdapter(getChildFragmentManager(),mContext,3));
+        mViewPager.setAdapter(new TabsPagerAdapter(getChildFragmentManager(), mContext, 3));
         mTabLayout.setupWithViewPager(mViewPager);
     }
 
