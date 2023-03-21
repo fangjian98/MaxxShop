@@ -43,4 +43,9 @@ dependencies {
 
     // NestedScrollView
     implementation 'androidx.core:core:1.9.0'
+
+    //room
+    implementation 'androidx.room:room-runtime:2.5.0'
+    annotationProcessor 'androidx.room:room-compiler:2.5.0'
+
 }
