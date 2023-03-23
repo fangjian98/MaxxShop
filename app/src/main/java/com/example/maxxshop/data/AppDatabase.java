@@ -17,7 +17,7 @@ import com.example.maxxshop.data.entity.UserEntity;
 @Database(entities = {GoodsEntity.class, ShopEntity.class, UserEntity.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
-    private static final String DATABASE_NAME = "maxx_shop_db.db";
+    private static final String DATABASE_NAME = "shop_db.db";
     private static AppDatabase mInstance;
 
     public static synchronized AppDatabase getInstance(Context context) {
